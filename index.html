@@ -3,12 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Abogada especialista en Derecho Familiar, Penal y Civil en Morelos. Asesoría profesional presencial en Yautepec, Jantetelco, Cuernavaca, Cuautla y por Zoom en todo el estado.">
-    <meta name="keywords" content="abogado morelos, derecho familiar, derecho penal, derecho civil, asesoría legal, abogada cuernavaca, divorcios morelos, juicios morelos">
-    <title>Lic. Legal Morelos | Especialista en Derecho Familiar, Penal y Civil</title>
+    <meta name="description" content="Lic. [Nombre] - Abogada especialista en Derecho Familiar, Penal y Civil en Morelos. Joven, actualizada y con casos ganados. Asesoría presencial en Yautepec, Jantetelco, Cuernavaca, Cuautla y por Zoom en todo Morelos.">
+    <meta name="keywords" content="abogada morelos, abogada joven morelos, abogada recién graduada morelos, derecho familiar morelos, divorcios morelos, derecho penal morelos, abogada economica morelos, asesoria legal morelos, abogada cuernavaca, abogada cuautla">
+    <meta name="author" content="Lic. [Nombre Apellido]">
+    <meta name="geo.region" content="MX-MOR">
+    <meta name="geo.placename" content="Morelos">
+    <title>Lic. [Nombre] | Abogada Especialista en Morelos - Derecho Familiar, Penal y Civil</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Lic. [Nombre] - Abogada Especialista en Morelos",
+      "description": "Abogada especialista en Derecho Familiar, Penal y Civil con atención en Morelos",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cuernavaca",
+        "addressRegion": "Morelos"
+      },
+      "telephone": "+527351130196",
+      "openingHours": "Mo-Fr 09:00-19:00, Sa 10:00-14:00",
+      "url": "https://www.abogadamorelos.com"
+    }
+    </script>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -337,6 +357,25 @@
             top: 2px;
         }
         
+        .youth-badge {
+            background-color: #f39c12;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2rem;
@@ -357,7 +396,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-balance-scale me-2"></i>Lic. Legal Morelos
+                <i class="fas fa-balance-scale me-2"></i>Lic. [Nombre]
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -377,7 +416,7 @@
                         <a class="nav-link" href="#cobertura">Cobertura</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                        <a class="nav-link" href="#testimonios">Casos de Éxito</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contacto">Contacto</a>
@@ -392,9 +431,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 hero-content">
-                    <h1 class="hero-title">Asesoría Legal Profesional en Todo Morelos</h1>
-                    <p class="hero-subtitle">Especialista en Derecho Familiar, Penal y Civil con atención personalizada y soluciones efectivas para tu caso.</p>
-                    <div class="d-flex flex-wrap gap-3">
+                    <h1 class="hero-title">Asesoría Legal Joven y Actualizada en Morelos <span class="youth-badge">Nueva Generación</span></h1>
+                    <p class="hero-subtitle">Licenciada en Derecho especializada en Familia, Penal y Civil. Atención personalizada, precios accesibles y enfoque moderno para resolver tus problemas legales.</p>
+                    <div class="highlight-box">
+                        <p class="mb-0"><i class="fas fa-star me-2" style="color: #f1c40f;"></i> <strong>+30 casos resueltos con éxito</strong> en mi primer año de ejercicio profesional, combinando conocimiento fresco con experiencia práctica.</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
                         <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20una%20asesoría%20legal" class="btn btn-whatsapp">
                             <i class="fab fa-whatsapp me-2"></i> Consulta por WhatsApp
                         </a>
@@ -404,7 +446,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Abogada profesional" class="img-fluid rounded shadow">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Abogada joven profesional" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>
@@ -415,15 +457,15 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-3 col-6 stats-item">
-                    <div class="stats-number">+500</div>
+                    <div class="stats-number">100%</div>
+                    <div class="stats-label">Dedicación a cada caso</div>
+                </div>
+                <div class="col-md-3 col-6 stats-item">
+                    <div class="stats-number">+30</div>
                     <div class="stats-label">Casos atendidos</div>
                 </div>
                 <div class="col-md-3 col-6 stats-item">
-                    <div class="stats-number">15+</div>
-                    <div class="stats-label">Años de experiencia</div>
-                </div>
-                <div class="col-md-3 col-6 stats-item">
-                    <div class="stats-number">98%</div>
+                    <div class="stats-number">95%</div>
                     <div class="stats-label">Satisfacción clientes</div>
                 </div>
                 <div class="col-md-3 col-6 stats-item">
@@ -438,6 +480,7 @@
     <section class="py-5" id="servicios">
         <div class="container">
             <h2 class="section-title text-center mb-5">Áreas de Especialización</h2>
+            <p class="text-center mb-5">Como abogada recién graduada pero con experiencia práctica, ofrezco un enfoque fresco y actualizado en estas áreas del derecho:</p>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="card service-card">
@@ -446,14 +489,17 @@
                                 <i class="fas fa-home"></i>
                             </div>
                             <h3 class="service-title">Derecho Familiar</h3>
-                            <p class="card-text">Asesoría especializada en divorcios, pensión alimenticia, guarda y custodia, reconocimiento de paternidad y más.</p>
+                            <p class="card-text">Soluciones efectivas y sensibles para asuntos familiares con trato humano y profesional.</p>
                             <ul class="feature-list text-start mt-3">
-                                <li>Divorcios exprés y contenciosos</li>
-                                <li>Pensión alimenticia</li>
-                                <li>Guarda y custodia</li>
+                                <li>Divorcios rápidos y sin conflicto</li>
+                                <li>Pensión alimenticia justa</li>
+                                <li>Custodia de menores</li>
                                 <li>Sucesiones y testamentos</li>
                             </ul>
-                            <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20asesoría%20de%20Derecho%20Familiar" class="btn btn-primary-custom mt-3">Consultar</a>
+                            <div class="mt-3">
+                                <span class="badge bg-success">5 casos ganados</span>
+                            </div>
+                            <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20asesoría%20de%20Derecho%20Familiar" class="btn btn-primary-custom mt-3">Consultar ahora</a>
                         </div>
                     </div>
                 </div>
@@ -464,14 +510,17 @@
                                 <i class="fas fa-gavel"></i>
                             </div>
                             <h3 class="service-title">Derecho Penal</h3>
-                            <p class="card-text">Defensa legal en procesos penales, juicios orales, amparos, libertad bajo fianza y delitos contra el patrimonio.</p>
+                            <p class="card-text">Defensa legal estratégica con conocimiento de las últimas reformas y jurisprudencias.</p>
                             <ul class="feature-list text-start mt-3">
                                 <li>Defensa en juicios orales</li>
                                 <li>Amparos penales</li>
                                 <li>Libertad bajo fianza</li>
-                                <li>Delitos contra el patrimonio</li>
+                                <li>Delitos menores</li>
                             </ul>
-                            <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20asesoría%20de%20Derecho%20Penal" class="btn btn-primary-custom mt-3">Consultar</a>
+                            <div class="mt-3">
+                                <span class="badge bg-success">8 casos ganados</span>
+                            </div>
+                            <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20asesoría%20de%20Derecho%20Penal" class="btn btn-primary-custom mt-3">Consultar ahora</a>
                         </div>
                     </div>
                 </div>
@@ -482,14 +531,17 @@
                                 <i class="fas fa-file-contract"></i>
                             </div>
                             <h3 class="service-title">Derecho Civil</h3>
-                            <p class="card-text">Asesoría en contratos, daños y perjuicios, responsabilidad civil, arrendamiento y defensa de derechos civiles.</p>
+                            <p class="card-text">Asesoría clara y accesible para proteger tus derechos patrimoniales y civiles.</p>
                             <ul class="feature-list text-start mt-3">
-                                <li>Contratos civiles y mercantiles</li>
+                                <li>Contratos y obligaciones</li>
                                 <li>Daños y perjuicios</li>
-                                <li>Responsabilidad civil</li>
-                                <li>Arrendamiento y propiedad</li>
+                                <li>Propiedad y posesión</li>
+                                <li>Arrendamientos</li>
                             </ul>
-                            <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20asesoría%20de%20Derecho%20Civil" class="btn btn-primary-custom mt-3">Consultar</a>
+                            <div class="mt-3">
+                                <span class="badge bg-success">12 casos ganados</span>
+                            </div>
+                            <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20asesoría%20de%20Derecho%20Civil" class="btn btn-primary-custom mt-3">Consultar ahora</a>
                         </div>
                     </div>
                 </div>
@@ -502,30 +554,35 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 mb-4 mb-lg-0">
-                    <img src="https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Abogada profesional" class="profile-img">
+                    <img src="https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Licenciada [Nombre] - Abogada en Morelos" class="profile-img">
                 </div>
                 <div class="col-lg-7">
-                    <h2 class="section-title">Sobre Mí</h2>
-                    <p>Hola, soy la Dra. [Nombre Apellido], abogada especializada con más de 15 años de experiencia en Derecho Familiar, Penal y Civil en el estado de Morelos.</p>
-                    <p>Mi enfoque se centra en brindar soluciones legales efectivas y personalizadas, acompañando a mis clientes en cada etapa de su proceso legal con profesionalismo, empatía y confidencialidad.</p>
-                    <p>Estoy comprometida con la excelencia en el servicio y la obtención de los mejores resultados para cada caso, ya sea mediante acuerdos negociados o representación en juicios.</p>
+                    <h2 class="section-title">Conoce a tu Abogada</h2>
+                    <p>Soy la Lic. [Nombre Apellido], abogada titulada con cédula profesional [número] y una pasión genuina por ayudar a las personas a resolver sus problemas legales.</p>
+                    
+                    <p>Aunque recién graduada, durante mi formación participé activamente en más de 30 casos reales como pasante en prestigiosos despachos de Morelos, adquiriendo experiencia práctica que ahora aplico en mi ejercicio profesional independiente.</p>
+                    
+                    <div class="highlight-box">
+                        <p class="mb-0"><i class="fas fa-lightbulb me-2" style="color: #f1c40f;"></i> <strong>¿Por qué elegirme?</strong> Combino el conocimiento fresco de las últimas reformas legales con un trato cercano y tarifas accesibles, sin sacrificar la calidad del servicio.</p>
+                    </div>
+                    
                     <div class="row mt-4">
                         <div class="col-md-6">
                             <ul class="feature-list">
-                                <li>Licenciada en Derecho por la UNAM</li>
-                                <li>Maestría en Derecho Penal</li>
-                                <li>Certificada en Derecho Familiar</li>
+                                <li>Licenciada en Derecho por [Universidad]</li>
+                                <li>Especialización en Derecho Familiar</li>
+                                <li>Actualizada en reformas legales 2023-2024</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
                             <ul class="feature-list">
-                                <li>Miembro del Colegio de Abogados</li>
-                                <li>Actualización constante</li>
-                                <li>Enfoque humano y profesional</li>
+                                <li>Experiencia práctica en más de 30 casos</li>
+                                <li>Enfoque moderno y soluciones innovadoras</li>
+                                <li>Honorarios competitivos y flexibles</li>
                             </ul>
                         </div>
                     </div>
-                    <a href="#contacto" class="btn btn-primary-custom mt-3">Conoce más sobre mi trabajo</a>
+                    <a href="#contacto" class="btn btn-primary-custom mt-3">Agendar consulta inicial sin costo</a>
                 </div>
             </div>
         </div>
@@ -534,7 +591,7 @@
     <!-- Coverage Section -->
     <section class="coverage-section" id="cobertura">
         <div class="container">
-            <h2 class="section-title text-center mb-5">Áreas de Cobertura</h2>
+            <h2 class="section-title text-center mb-5">Áreas de Cobertura en Morelos</h2>
             <div class="row">
                 <div class="col-lg-6">
                     <h3 class="mb-4">Atendemos en las siguientes zonas de Morelos:</h3>
@@ -545,9 +602,11 @@
                         <li><strong>Jantetelco:</strong> Asesoría con cita previa</li>
                         <li><strong>Todo Morelos:</strong> Consultas por Zoom disponibles</li>
                     </ul>
-                    <p class="mt-4">Ofrecemos flexibilidad en nuestros servicios para adaptarnos a tus necesidades, ya sea mediante consultas presenciales o virtuales por Zoom para todo el estado de Morelos.</p>
-                    <a href="https://wa.me/527351130196?text=Hola,%20quiero%20agendar%20una%20cita%20presencial" class="btn btn-primary-custom mt-3">
-                        <i class="fas fa-calendar-alt me-2"></i> Agendar cita presencial
+                    <div class="highlight-box mt-4">
+                        <p class="mb-0"><i class="fas fa-laptop me-2" style="color: #3498db;"></i> <strong>¿Vives lejos o prefieres comodidad?</strong> Las consultas por Zoom tienen <strong>20% de descuento</strong> en tu primera asesoría.</p>
+                    </div>
+                    <a href="https://wa.me/527351130196?text=Hola,%20quiero%20agendar%20una%20consulta%20por%20Zoom" class="btn btn-primary-custom mt-3">
+                        <i class="fas fa-video me-2"></i> Consulta por Zoom
                     </a>
                 </div>
                 <div class="col-lg-6">
@@ -560,18 +619,19 @@
     <!-- Testimonials Section -->
     <section class="py-5 bg-light" id="testimonios">
         <div class="container">
-            <h2 class="section-title text-center mb-5">Testimonios de Clientes</h2>
+            <h2 class="section-title text-center mb-5">Casos de Éxito y Testimonios</h2>
+            <p class="text-center mb-5">Estos son algunos de los resultados que he logrado para mis clientes:</p>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="testimonial-card">
                         <div class="testimonial-text">
-                            "La Dra. me ayudó con mi proceso de divorcio de manera rápida y profesional. Siempre estuvo pendiente de mi caso y logramos un acuerdo favorable."
+                            "La Lic. [Nombre] manejó mi divorcio de manera impecable. A pesar de su juventud, demostró un conocimiento profundo y logró que todo se resolviera en solo 3 meses sin conflictos."
                         </div>
                         <div class="d-flex align-items-center">
                             <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Cliente satisfecho" class="rounded-circle me-3" width="50">
                             <div>
                                 <div class="client-name">María G.</div>
-                                <div class="text-muted">Divorcio exprés</div>
+                                <div class="text-muted">Divorcio exprés en Cuernavaca</div>
                             </div>
                         </div>
                     </div>
@@ -579,13 +639,13 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="testimonial-card">
                         <div class="testimonial-text">
-                            "Excelente defensa en mi caso penal. La profesionalismo y conocimiento de la Dra. fueron clave para obtener mi libertad. Recomendada 100%."
+                            "Me defendió en un caso penal por un malentendido. Su estrategia legal y preparación fueron clave para demostrar mi inocencia. Muy profesional y accesible en sus honorarios."
                         </div>
                         <div class="d-flex align-items-center">
                             <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente satisfecho" class="rounded-circle me-3" width="50">
                             <div>
                                 <div class="client-name">Juan P.</div>
-                                <div class="text-muted">Defensa penal</div>
+                                <div class="text-muted">Defensa exitosa en Yautepec</div>
                             </div>
                         </div>
                     </div>
@@ -593,17 +653,22 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="testimonial-card">
                         <div class="testimonial-text">
-                            "Gracias a su asesoría pude resolver un conflicto de propiedad familiar que llevaba años. Muy clara en sus explicaciones y estrategias."
+                            "Recuperé una propiedad familiar gracias a su asesoría. Explicó cada paso con paciencia y logramos un acuerdo favorable sin llegar a juicio. La recomiendo ampliamente."
                         </div>
                         <div class="d-flex align-items-center">
                             <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente satisfecho" class="rounded-circle me-3" width="50">
                             <div>
                                 <div class="client-name">Laura M.</div>
-                                <div class="text-muted">Derecho civil</div>
+                                <div class="text-muted">Caso de propiedad en Cuautla</div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="https://wa.me/527351130196?text=Hola,%20quiero%20conocer%20más%20casos%20de%20éxito" class="btn btn-primary-custom">
+                    <i class="fas fa-folder-open me-2"></i> Ver más casos exitosos
+                </a>
             </div>
         </div>
     </section>
@@ -611,9 +676,9 @@
     <!-- CTA Section -->
     <section class="py-5" style="background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%); color: white;">
         <div class="container text-center">
-            <h2 class="mb-4">¿Necesitas asesoría legal profesional?</h2>
-            <p class="lead mb-5">No dejes que tus problemas legales se conviertan en algo mayor. Contáctame hoy mismo para una consulta inicial.</p>
-            <a href="https://wa.me/527351130196?text=Hola,%20necesito%20una%20consulta%20legal" class="btn btn-whatsapp btn-lg me-3">
+            <h2 class="mb-4">¿Buscas una abogada joven, actualizada y con resultados?</h2>
+            <p class="lead mb-5">Ofrezco <strong>primera consulta sin costo</strong> para evaluar tu caso y explicarte las opciones disponibles.</p>
+            <a href="https://wa.me/527351130196?text=Hola,%20quiero%20una%20consulta%20inicial%20sin%20costo" class="btn btn-whatsapp btn-lg me-3">
                 <i class="fab fa-whatsapp me-2"></i> WhatsApp
             </a>
             <a href="tel:+527351130196" class="btn btn-primary-custom btn-lg">
@@ -639,8 +704,11 @@
                     <ul class="list-unstyled text-white">
                         <li class="mb-2"><strong>Lunes a Viernes:</strong> 9:00 am - 7:00 pm</li>
                         <li class="mb-2"><strong>Sábados:</strong> 10:00 am - 2:00 pm</li>
-                        <li><strong>Emergencias:</strong> 24/7</li>
+                        <li><strong>Emergencias:</strong> Disponible 24/7</li>
                     </ul>
+                    <div class="mt-4">
+                        <p class="text-white"><i class="fas fa-exclamation-circle me-2"></i> <strong>Primera consulta:</strong> Evaluación inicial sin costo para conocer tu caso.</p>
+                    </div>
                 </div>
                 <div class="col-lg-7">
                     <h3 class="text-white mb-4">Formulario de Contacto</h3>
@@ -653,16 +721,22 @@
                                 <input type="email" class="form-control" placeholder="Correo electrónico" required>
                             </div>
                         </div>
-                        <input type="tel" class="form-control" placeholder="Teléfono">
+                        <input type="tel" class="form-control" placeholder="Teléfono (opcional)">
                         <select class="form-control" required>
                             <option value="" disabled selected>Selecciona el tipo de consulta</option>
-                            <option>Derecho Familiar</option>
-                            <option>Derecho Penal</option>
-                            <option>Derecho Civil</option>
-                            <option>Otra consulta</option>
+                            <option>Derecho Familiar (divorcios, custodia, pensiones)</option>
+                            <option>Derecho Penal (defensa, juicios, amparos)</option>
+                            <option>Derecho Civil (contratos, propiedades, daños)</option>
+                            <option>Otra consulta legal</option>
                         </select>
-                        <textarea class="form-control" rows="5" placeholder="Describe brevemente tu caso" required></textarea>
-                        <button type="submit" class="btn btn-primary-custom w-100">Enviar consulta</button>
+                        <textarea class="form-control" rows="5" placeholder="Describe brevemente tu situación legal" required></textarea>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="privacyCheck" required>
+                            <label class="form-check-label text-white" for="privacyCheck">
+                                Acepto la política de privacidad
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom w-100">Solicitar consulta inicial sin costo</button>
                     </form>
                 </div>
             </div>
@@ -678,7 +752,8 @@
                 <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
             </div>
-            <p class="mb-2">Dra. Legal Morelos - Especialista en Derecho Familiar, Penal y Civil</p>
+            <p class="mb-2">Lic. [Nombre Apellido] - Abogada Especialista en Morelos</p>
+            <p class="mb-0">Cédula Profesional: [Número de cédula]</p>
             <p class="mb-0">© <span id="currentYear"></span> Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -742,7 +817,7 @@
         // Form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo muy pronto.');
+            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo muy pronto para agendar tu consulta inicial sin costo.');
             this.reset();
         });
         
