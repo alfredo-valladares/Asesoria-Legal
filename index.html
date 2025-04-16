@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abogada especialista en Derecho Familiar, Penal y Civil en Morelos. Asesoría profesional presencial en Yautepec, Jantetelco, Cuernavaca, Cuautla y por Zoom en todo el estado.">
+    <meta name="keywords" content="abogado morelos, derecho familiar, derecho penal, derecho civil, asesoría legal, abogada cuernavaca, divorcios morelos, juicios morelos">
+    <title>Lic. Legal Morelos | Especialista en Derecho Familiar, Penal y Civil</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #8e44ad;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #34495e;
+            --highlight-color: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .service-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .about-section {
+            background-color: var(--light-color);
+            padding: 80px 0;
+        }
+        
+        .profile-img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .coverage-section {
+            padding: 80px 0;
+        }
+        
+        #coverage-map {
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .client-name {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .contact-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+        
+        .form-control {
+            border-radius: 5px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: none;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        .badge-custom {
+            background-color: var(--highlight-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .stats-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .stats-label {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .feature-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-balance-scale me-2"></i>Lic. Legal Morelos
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-mi">Sobre Mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cobertura">Cobertura</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">Asesoría Legal Profesional en Todo Morelos</h1>
+                    <p class="hero-subtitle">Especialista en Derecho Familiar, Penal y Civil con atención personalizada y soluciones efectivas para tu caso.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20una%20asesoría%20legal" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp me-2"></i> Consulta por WhatsApp
+                        </a>
+                        <a href="#contacto" class="btn btn-primary-custom">
+                            <i class="fas fa-phone me-2"></i> Agendar Cita
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Abogada profesional" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 stats-item">
+                    <div class="stats-number">+500</div>
+                    <div class="stats-label">Casos atendidos</div>
+                </div>
+                <div class="col-md-3 col-6 stats-item">
+                    <div class="stats-number">15+</div>
+                    <div class="stats-label">Años de experiencia</div>
+                </div>
+                <div class="col-md-3 col-6 stats-item">
+                    <div class="stats-number">98%</div>
+                    <div class="stats-label">Satisfacción clientes</div>
+                </div>
+                <div class="col-md-3 col-6 stats-item">
+                    <div class="stats-number">24/7</div>
+                    <div class="stats-label">Atención disponible</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5" id="servicios">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Áreas de Especialización</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3 class="service-title">Derecho Familiar</h3>
+                            <p class="card-text">Asesoría especializada en divorcios, pensión alimenticia, guarda y custodia, reconocimiento de paternidad y más.</p>
+                            <ul class="feature-list text-start mt-3">
+                                <li>Divorcios exprés y contenciosos</li>
+                                <li>Pensión alimenticia</li>
+                                <li>Guarda y custodia</li>
+                                <li>Sucesiones y testamentos</li>
+                            </ul>
+                            <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20asesoría%20de%20Derecho%20Familiar" class="btn btn-primary-custom mt-3">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h3 class="service-title">Derecho Penal</h3>
+                            <p class="card-text">Defensa legal en procesos penales, juicios orales, amparos, libertad bajo fianza y delitos contra el patrimonio.</p>
+                            <ul class="feature-list text-start mt-3">
+                                <li>Defensa en juicios orales</li>
+                                <li>Amparos penales</li>
+                                <li>Libertad bajo fianza</li>
+                                <li>Delitos contra el patrimonio</li>
+                            </ul>
+                            <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20asesoría%20de%20Derecho%20Penal" class="btn btn-primary-custom mt-3">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <h3 class="service-title">Derecho Civil</h3>
+                            <p class="card-text">Asesoría en contratos, daños y perjuicios, responsabilidad civil, arrendamiento y defensa de derechos civiles.</p>
+                            <ul class="feature-list text-start mt-3">
+                                <li>Contratos civiles y mercantiles</li>
+                                <li>Daños y perjuicios</li>
+                                <li>Responsabilidad civil</li>
+                                <li>Arrendamiento y propiedad</li>
+                            </ul>
+                            <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20asesoría%20de%20Derecho%20Civil" class="btn btn-primary-custom mt-3">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="sobre-mi">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Abogada profesional" class="profile-img">
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="section-title">Sobre Mí</h2>
+                    <p>Hola, soy la Dra. [Nombre Apellido], abogada especializada con más de 15 años de experiencia en Derecho Familiar, Penal y Civil en el estado de Morelos.</p>
+                    <p>Mi enfoque se centra en brindar soluciones legales efectivas y personalizadas, acompañando a mis clientes en cada etapa de su proceso legal con profesionalismo, empatía y confidencialidad.</p>
+                    <p>Estoy comprometida con la excelencia en el servicio y la obtención de los mejores resultados para cada caso, ya sea mediante acuerdos negociados o representación en juicios.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="feature-list">
+                                <li>Licenciada en Derecho por la UNAM</li>
+                                <li>Maestría en Derecho Penal</li>
+                                <li>Certificada en Derecho Familiar</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="feature-list">
+                                <li>Miembro del Colegio de Abogados</li>
+                                <li>Actualización constante</li>
+                                <li>Enfoque humano y profesional</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#contacto" class="btn btn-primary-custom mt-3">Conoce más sobre mi trabajo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="coverage-section" id="cobertura">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Áreas de Cobertura</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Atendemos en las siguientes zonas de Morelos:</h3>
+                    <ul class="feature-list">
+                        <li><strong>Cuernavaca:</strong> Consultas presenciales en oficina profesional</li>
+                        <li><strong>Cuautla:</strong> Atención en despacho asociado</li>
+                        <li><strong>Yautepec:</strong> Visitas programadas</li>
+                        <li><strong>Jantetelco:</strong> Asesoría con cita previa</li>
+                        <li><strong>Todo Morelos:</strong> Consultas por Zoom disponibles</li>
+                    </ul>
+                    <p class="mt-4">Ofrecemos flexibilidad en nuestros servicios para adaptarnos a tus necesidades, ya sea mediante consultas presenciales o virtuales por Zoom para todo el estado de Morelos.</p>
+                    <a href="https://wa.me/527351130196?text=Hola,%20quiero%20agendar%20una%20cita%20presencial" class="btn btn-primary-custom mt-3">
+                        <i class="fas fa-calendar-alt me-2"></i> Agendar cita presencial
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div id="coverage-map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light" id="testimonios">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Testimonios de Clientes</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "La Dra. me ayudó con mi proceso de divorcio de manera rápida y profesional. Siempre estuvo pendiente de mi caso y logramos un acuerdo favorable."
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Cliente satisfecho" class="rounded-circle me-3" width="50">
+                            <div>
+                                <div class="client-name">María G.</div>
+                                <div class="text-muted">Divorcio exprés</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Excelente defensa en mi caso penal. La profesionalismo y conocimiento de la Dra. fueron clave para obtener mi libertad. Recomendada 100%."
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente satisfecho" class="rounded-circle me-3" width="50">
+                            <div>
+                                <div class="client-name">Juan P.</div>
+                                <div class="text-muted">Defensa penal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Gracias a su asesoría pude resolver un conflicto de propiedad familiar que llevaba años. Muy clara en sus explicaciones y estrategias."
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente satisfecho" class="rounded-circle me-3" width="50">
+                            <div>
+                                <div class="client-name">Laura M.</div>
+                                <div class="text-muted">Derecho civil</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%); color: white;">
+        <div class="container text-center">
+            <h2 class="mb-4">¿Necesitas asesoría legal profesional?</h2>
+            <p class="lead mb-5">No dejes que tus problemas legales se conviertan en algo mayor. Contáctame hoy mismo para una consulta inicial.</p>
+            <a href="https://wa.me/527351130196?text=Hola,%20necesito%20una%20consulta%20legal" class="btn btn-whatsapp btn-lg me-3">
+                <i class="fab fa-whatsapp me-2"></i> WhatsApp
+            </a>
+            <a href="tel:+527351130196" class="btn btn-primary-custom btn-lg">
+                <i class="fas fa-phone me-2"></i> Llamar ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <h2 class="section-title text-center text-white mb-5">Contacto</h2>
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <h3 class="text-white mb-4">Información de Contacto</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone contact-icon"></i> <strong>Teléfono:</strong> <a href="tel:+527351130196" class="text-white">735 113 0196</a></p>
+                        <p><i class="fab fa-whatsapp contact-icon"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20una%20asesoría%20legal" class="text-white">Enviar mensaje</a></p>
+                        <p><i class="fas fa-envelope contact-icon"></i> <strong>Email:</strong> <a href="mailto:contacto@abogadamorelos.com" class="text-white">contacto@abogadamorelos.com</a></p>
+                        <p><i class="fas fa-map-marker-alt contact-icon"></i> <strong>Oficina principal:</strong> <span class="text-white">Cuernavaca, Morelos</span></p>
+                    </div>
+                    <h3 class="text-white mb-4 mt-5">Horario de atención</h3>
+                    <ul class="list-unstyled text-white">
+                        <li class="mb-2"><strong>Lunes a Viernes:</strong> 9:00 am - 7:00 pm</li>
+                        <li class="mb-2"><strong>Sábados:</strong> 10:00 am - 2:00 pm</li>
+                        <li><strong>Emergencias:</strong> 24/7</li>
+                    </ul>
+                </div>
+                <div class="col-lg-7">
+                    <h3 class="text-white mb-4">Formulario de Contacto</h3>
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                            </div>
+                        </div>
+                        <input type="tel" class="form-control" placeholder="Teléfono">
+                        <select class="form-control" required>
+                            <option value="" disabled selected>Selecciona el tipo de consulta</option>
+                            <option>Derecho Familiar</option>
+                            <option>Derecho Penal</option>
+                            <option>Derecho Civil</option>
+                            <option>Otra consulta</option>
+                        </select>
+                        <textarea class="form-control" rows="5" placeholder="Describe brevemente tu caso" required></textarea>
+                        <button type="submit" class="btn btn-primary-custom w-100">Enviar consulta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="mb-4">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="mb-2">Dra. Legal Morelos - Especialista en Derecho Familiar, Penal y Civil</p>
+            <p class="mb-0">© <span id="currentYear"></span> Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/527351130196?text=Hola,%20estoy%20interesado%20en%20una%20asesoría%20legal" class="floating-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Current Year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Initialize Map
+        function initMap() {
+            const map = L.map('coverage-map').setView([18.7339, -99.1417], 9);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add markers for coverage areas
+            const coverageAreas = [
+                { name: "Cuernavaca", coords: [18.9186, -99.2340] },
+                { name: "Cuautla", coords: [18.8106, -98.9352] },
+                { name: "Yautepec", coords: [18.8814, -99.0672] },
+                { name: "Jantetelco", coords: [18.7150, -98.7789] }
+            ];
+            
+            coverageAreas.forEach(area => {
+                L.marker(area.coords).addTo(map)
+                    .bindPopup(`<b>${area.name}</b><br>Atención presencial disponible`);
+            });
+            
+            // Add circle for general coverage
+            L.circle([18.7339, -99.1417], {
+                color: '#3498db',
+                fillColor: '#3498db',
+                fillOpacity: 0.2,
+                radius: 30000
+            }).addTo(map).bindPopup("Cobertura en todo Morelos por Zoom");
+        }
+        
+        // Initialize map when page loads
+        document.addEventListener('DOMContentLoaded', initMap);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo muy pronto.');
+            this.reset();
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.service-card, .testimonial-card, .section-title');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.service-card, .testimonial-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        document.querySelectorAll('.section-title').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(-20px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
