@@ -824,11 +824,27 @@
         });
         
         // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo muy pronto para agendar tu consulta inicial sin costo.');
-            this.reset();
-        });
+     function enviarFormulario() {
+        const form = document.getElementById("contactForm");
+        const datos = {
+            nombre: form.nombre.value,
+            email: form.email.value,
+            telefono: form.telefono.value,
+            tipo_consulta: form.tipo_consulta.value,
+            mensaje: form.mensaje.value
+        };
+        
+        fetch("https://script.google.com/macros/s/AKfycbwhE9AixTVEf4BrdBOqS-MrXtMmMtmm2jYa-K000YmjZ43ms-fdtl51VvAvFma7GAO9/exec", {
+            method: "POST",
+            body: JSON.stringify(datos)
+        })
+        .then(response => alert("¡Mensaje enviado con éxito!"))
+        .catch(error => alert("Error al enviar"));
+    }
+
+
+
+        
         
         // Animation on scroll
         function animateOnScroll() {
